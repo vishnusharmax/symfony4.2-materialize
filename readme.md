@@ -18,3 +18,7 @@ Symfony 4.2 Demo Application with materialize theme setup.
 <div class="highlight highlight-source-shell"><pre>$ composer update</pre></div>
 <p>To run the project run the below cmd in your project dir</p>
 <div class="highlight highlight-source-shell"><pre>$ php bin/console server:run</pre></div>
+<p align="center">How its look</p>
+<p align="center"><img src="https://d2a6wgl0q1g6f1.cloudfront.net/demo/Screenshot+2019-04-18+at+1.50.36+PM.png"></p>
+<p align="center"><img src="https://d2a6wgl0q1g6f1.cloudfront.net/demo/Screenshot+2019-04-18+at+1.51.01+PM.png"></p>
+<p align="center"><img src="https://d2a6wgl0q1g6f1.cloudfront.net/demo/Screenshot+2019-04-18+at+1.59.24+PM.png"></p>
