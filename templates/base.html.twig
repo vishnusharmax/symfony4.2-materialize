@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta http_equiv="X-UA_Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Now easily manage your user activity using Activity Tracker">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    {% block stylesheets %}
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="{{ asset('website/css/materialize.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('website/css/style.css') }}" rel="stylesheet">
+        <link rel="shortcut icon" href="{{ asset('website/img/favicon.png') }}"/>
+        <style>
+            body {
+                display: flex;
+                min-height: 100vh;
+                flex-direction: column;
+            }
+
+            main {
+                flex: 1 0 auto;
+            }
+
+            .page-footer {
+                padding-top: 20px;
+                color: #fff;
+                background-color: #607D8B;
+                margin-top: auto;
+            }
+
+            .light-blue.lighten-1 {
+                background-color: #375fdf !important;
+            }
+
+            .btn_blue {
+                text-decoration: none;
+                color: #fff;
+                background-color: #326cdc !important;
+                text-align: center;
+                letter-spacing: .5px;
+                -webkit-transition: background-color .2s ease-out;
+                transition: background-color .2s ease-out;
+                cursor: pointer;
+                width: 100%;
+                height: 50px;
+                line-height: 50px;
+                /* font-weight: bold; */
+                font-size: 16px;
+                margin-top: 30px;
+            }
+
+            a {
+                color: #326cdc;
+                text-decoration: none;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .btn, .btn-large, .btn-small {
+                text-decoration: none;
+                color: #fff;
+                background-color: #326cdc !important;
+                text-align: center;
+                letter-spacing: .5px;
+                -webkit-transition: background-color .2s ease-out;
+                transition: background-color .2s ease-out;
+                cursor: pointer;
+            }
+        </style>
+    {% endblock %}
+</head>
+<body>
+{% block header %}
+    <!--   Nav Section   -->
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container">
+            <a href="{{ path('home') }}" class="brand-logo"><i class="large material-icons">assessment</i>ActivityTracker</a>
+
+            <ul class="right hide-on-med-and-down">
+                <li {% if app.request.attributes.get('_route')=="home" %}class="active" {% endif %}><a href="{{ path('home') }}">Home</a></li>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li {% if app.request.attributes.get('_route')=="dashboard" %}class="active" {% endif %}><a href="{{ path('dashboard') }}" >Dashboard</a></li>
+                    <li><a href="{{ path('app_logout') }}">Logout</a></li>
+
+                {% else %}
+                    <li {% if app.request.attributes.get('_route')=="login" %}class="active" {% endif %}><a href="{{ path('app_login') }}">Login</a></li>
+                {% endif %}
+            </ul>
+
+            <ul id="nav-mobile" class="sidenav">
+                <li>
+                    <div class="user-view">
+                        <div class="background">
+                            <img src="https://materializecss.com/images/office.jpg">
+                        </div>
+                        <a href="#user"><img class="circle"
+                                             src="http://connectyou.tryfcomet.com/website/img/connect_banner.jpg"></a>
+                        <a href="#name"><span class="white-text name">Someone</span></a>
+                        <a href="#email"><span class="white-text email">Someone@Someone.com</span></a>
+                    </div>
+                </li>
+                <li class="active"><a href="{{ path('home') }}"><i class="material-icons">home</i> Home</a></li>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li><a href="{{ path('app_logout') }}"><i class="material-icons">unlock</i> Logout</a></li>
+                {% else %}
+                    <li><a href="{{ path('app_login') }}"><i class="material-icons">lock</i> Login</a></li>
+                {% endif %}
+
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+    <!--   Nav Section End  -->
+{% endblock %}
+{% block body %}
+{% endblock %}
+{% block footer %}
+    <!--   Footer Section -->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Activity Tracker</h5>
+                    <p class="grey-text text-lighten-4">Plan your day with easy step solution</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2014 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
+    <!--   Footer Section End  -->
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+{% endblock %}
+</body>
+</html>

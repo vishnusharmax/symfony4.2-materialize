@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home - ActivityTracker{% endblock %}
+
+{% block body %}
+    <!--   Banner Section   -->
+    <div class="section no-pad-bot" id="index-banner" style="background: url('./../../website/img/background.png'); background-repeat: no-repeat;
+    background-size: 1444px 343px;">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <br>
+                    <h1 class="header center white-text">Plan Your Employee Monitoring</h1>
+                    <div class="row center">
+                        <h5 class="header col s12 white-text hide-on-small-only"><b>ActivityTracker</b> The Most Secure Application That Boost Your Business Growth.
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+
+        </div>
+    </div>
+    <!--   Banner Section End  -->
+<div class="container">
+        <div class="section">
+            <h3 class="header center black-text">Active Employee</h3>
+            <div class="divider"></div>
+            <div class="row">
+            <div class="col s12">
+                <table class="striped responsive-table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.mobile }}</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="10">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
